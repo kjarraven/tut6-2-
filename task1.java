@@ -1,32 +1,30 @@
-class Vehicle {
-    public void start() {
-        System.out.println("Vehicle is starting.");
+class Transport {
+    public void ignite() {
+        System.out.println("Transport is now active.");
     }
 
-    public void stop() {
-        System.out.println("Vehicle is stopping.");
-    }
-}
-
-class Car extends Vehicle {
-    private int numberOfSeats;
-
-    public Car(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public void shutdown() {
+        System.out.println("Transport is now inactive.");
     }
 }
 
-public class task1 {
+class Bus extends Transport {
+    private int seatCapacity;
+
+    public Bus(int seatCapacity) {
+        this.seatCapacity = seatCapacity;
+    }
+
+    public int getSeatCapacity() {
+        return seatCapacity;
+    }
+}
+
+public class TaskOne {
     public static void main(String[] args) {
-
-        Car myCar = new Car(5);
-        myCar.start();
-        myCar.stop();
-
-        System.out.println("Number of seats: " + myCar.getNumberOfSeats());
+        Bus cityBus = new Bus(40);
+        cityBus.ignite();
+        cityBus.shutdown();
+        System.out.println("Seat Capacity: " + cityBus.getSeatCapacity());
     }
 }
