@@ -1,75 +1,75 @@
-class Animal {
-    public void makeNoise() {
-        System.out.println("The animal makes a sound.");
+public class AnimalHierarchy {
+
+    static class Animal {
+        public void sleep() {
+            System.out.println("The animal is sleeping.");
+        }
+
+        public void makeNoise() {
+            System.out.println("The animal makes a noise.");
+        }
+
+        public void roam() {
+            System.out.println("The animal is roaming.");
+        }
     }
 
-    public void roam() {
-        System.out.println("The animal roams around.");
+    static class Feline extends Animal {
+        @Override
+        public void roam() {
+            System.out.println("The feline prowls silently.");
+        }
     }
 
-    public void sleep() {
-        System.out.println("The animal sleeps.");
+    static class Canine extends Animal {
+        @Override
+        public void roam() {
+            System.out.println("The canine roams in packs.");
+        }
     }
-}
 
-// Feline family
-class Feline extends Animal {
-    @Override
-    public void roam() {
-        System.out.println("The feline prowls silently.");
+    static class Lion extends Feline {
+        @Override
+        public void makeNoise() {
+            System.out.println("The lion roars.");
+        }
     }
-}
 
-class Cat1 extends Feline {
-    @Override
-    public void makeNoise() {
-        System.out.println("The cat says: Meow!");
+    static class Cat extends Feline {
+        @Override
+        public void makeNoise() {
+            System.out.println("The cat meows.");
+        }
     }
-}
 
-class Lion1 extends Feline {
-    @Override
-    public void makeNoise() {
-        System.out.println("The lion says: Roar!");
+    static class Wolf extends Canine {
+        @Override
+        public void makeNoise() {
+            System.out.println("The wolf howls.");
+        }
     }
-}
 
-// Canine family
-class Canine extends Animal {
-    @Override
-    public void roam() {
-        System.out.println("The canine roams in a pack.");
+    static class Dog extends Canine {
+        @Override
+        public void makeNoise() {
+            System.out.println("The dog barks.");
+        }
     }
-}
 
-class Dog1 extends Canine {
-    @Override
-    public void makeNoise() {
-        System.out.println("The dog says: Bark!");
-    }
-}
-
-class Wolf1 extends Canine {
-    @Override
-    public void makeNoise() {
-        System.out.println("The wolf says: Howl!");
-    }
-}
-
-public class task4 {
     public static void main(String[] args) {
         Animal[] animals = {
-                new Cat1(),
-                new Dog1(),
-                new Lion1(),
-                new Wolf1()
+            new Lion(),
+            new Cat(),
+            new Wolf(),
+            new Dog()
         };
 
         for (Animal animal : animals) {
+            System.out.println("Class: " + animal.getClass().getSimpleName());
             animal.makeNoise();
-            animal.roam();
             animal.sleep();
-            System.out.println("---");
+            animal.roam();
+            System.out.println("------");
         }
     }
 }
