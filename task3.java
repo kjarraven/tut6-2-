@@ -1,44 +1,60 @@
-class Animal1 {
-    public void makeNoise() {
-        System.out.println("The animal makes a sound.");
+public class AnimalHierarchy {
+
+    static class Animal {
+        public void sleep() {
+            System.out.println("The animal is sleeping.");
+        }
+
+        public void makeNoise() {
+            System.out.println("The animal makes a noise.");
+        }
+
+        public void roam() {
+            System.out.println("The animal is roaming.");
+        }
     }
-}
-class Cat extends Animal {
-    @Override
-    public void makeNoise() {
-        System.out.println("The cat says: Meow!");
+
+    static class Lion extends Animal {
+        @Override
+        public void makeNoise() {
+            System.out.println("The lion roars.");
+        }
     }
-}
-class Dog extends Animal {
-    @Override
-    public void makeNoise() {
-        System.out.println("The dog says: Bark!");
+
+    static class Cat extends Animal {
+        @Override
+        public void makeNoise() {
+            System.out.println("The cat meows.");
+        }
     }
-}
-class Lion extends Animal {
-    @Override
-    public void makeNoise() {
-        System.out.println("The lion says: Roar!");
+
+    static class Wolf extends Animal {
+        @Override
+        public void makeNoise() {
+            System.out.println("The wolf howls.");
+        }
     }
-}
-class Wolf extends Animal {
-    @Override
-    public void makeNoise() {
-        System.out.println("The wolf says: Howl!");
+
+    static class Dog extends Animal {
+        @Override
+        public void makeNoise() {
+            System.out.println("The dog barks.");
+        }
     }
-}
-public class task3 {
+
     public static void main(String[] args) {
         Animal[] animals = {
-                new Cat(),
-                new Dog(),
-                new Lion(),
-                new Wolf()
+            new Lion(),
+            new Cat(),
+            new Wolf(),
+            new Dog()
         };
 
         for (Animal animal : animals) {
             animal.makeNoise();
-            System.out.println("---");
+            animal.sleep();
+            animal.roam();
+            System.out.println("------");
         }
     }
 }
