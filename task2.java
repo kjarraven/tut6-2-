@@ -1,4 +1,4 @@
-class Vehicle1 {
+class Vehicle {
     public void start() {
         System.out.println("Vehicle is starting.");
     }
@@ -8,10 +8,10 @@ class Vehicle1 {
     }
 }
 
-class Car1 extends Vehicle1 {
+class Car extends Vehicle {
     private int numberOfSeats;
 
-    public Car1(int numberOfSeats) {
+    public Car(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
@@ -19,22 +19,24 @@ class Car1 extends Vehicle1 {
         return numberOfSeats;
     }
 
+    // Overriding methods
     @Override
     public void start() {
-        System.out.println("Car engine is starting. Fasten your seatbelt.");
+        System.out.println("Car engine is starting with " + numberOfSeats + " seats.");
     }
 
     @Override
     public void stop() {
-        System.out.println("Car is stopping. Apply brakes gently.");
+        System.out.println("Car is parking and turning off the engine.");
     }
 }
 
-public class task2 {
+public class Task1 {
     public static void main(String[] args) {
-        Car1 myCar = new Car1(5);
+        Car myCar = new Car(5);
+
+        // Call overridden methods
         myCar.start();
         myCar.stop();
-        System.out.println("Number of seats: " + myCar.getNumberOfSeats());
     }
 }
