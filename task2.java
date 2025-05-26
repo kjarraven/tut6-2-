@@ -19,7 +19,6 @@ class Car extends Vehicle {
         return numberOfSeats;
     }
 
-    // Overriding methods
     @Override
     public void start() {
         System.out.println("Car engine is starting with " + numberOfSeats + " seats.");
@@ -35,7 +34,6 @@ public class Task1 {
     public static void main(String[] args) {
         Car myCar = new Car(5);
 
-        // Call overridden methods
         myCar.start();
         myCar.stop();
     }
